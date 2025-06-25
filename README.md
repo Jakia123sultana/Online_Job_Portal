@@ -1,36 +1,26 @@
-# Frontend UI Template — React + Vite + Tailwind CSS
+# Online Job Portal
 
-A clean, responsive, and scalable frontend boilerplate built with React, Vite, Tailwind CSS, and JavaScript. Ideal for modern web application interfaces, dashboards, landing pages, and more.
+A clean, responsive frontend template built with React, Vite, Tailwind CSS, and JavaScript — perfect for building modern job portals, dashboards, or any web application interface.
 
 ---
 
 ## About
 
-This template provides a solid starting point for building modern web applications with a focus on performance, maintainability, and responsive design. It leverages React for UI components, Vite for fast development and builds, and Tailwind CSS for utility-first styling.
+This project is an Online Job Portal frontend that offers a scalable and user-friendly interface. It uses React for building dynamic UI, Vite for fast development, and Tailwind CSS for easy styling.
 
 ---
 
 ## Tech Stack
 
-- **React** – Declarative UI library for building dynamic interfaces  
-- **Vite** – Fast development build tool and dev server  
-- **Tailwind CSS** – Utility-first CSS framework for custom designs  
-- **JavaScript (ES6+)** – Clean and modern JS syntax  
-
----
-
-## Features
-
-- Fast hot module replacement (HMR) with Vite  
-- Responsive design using Tailwind CSS utilities  
-- Modular React components  
-- Easy to customize and extend  
-- Optimized build for production  
+- **React** — For building interactive UI components  
+- **Vite** — Fast development and build tool  
+- **Tailwind CSS** — Utility-first CSS framework for responsive design  
+- **JavaScript (ES6+)** — Modern JavaScript features
 
 ---
 
 ## Installation
 
-1. Clone the repository  
+1. Clone the repo:  
    ```bash
    git clone https://github.com/Jakia123sultana/Online_Job_Portal.git
