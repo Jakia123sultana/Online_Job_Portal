@@ -1,12 +1,26 @@
-# React + Vite
+# Online Job Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, responsive frontend template built with React, Vite, Tailwind CSS, and JavaScript — perfect for building modern job portals, dashboards, or any web application interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About
 
-## Expanding the ESLint configuration
+This project is an Online Job Portal frontend that offers a scalable and user-friendly interface. It uses React for building dynamic UI, Vite for fast development, and Tailwind CSS for easy styling.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+- **React** — For building interactive UI components  
+- **Vite** — Fast development and build tool  
+- **Tailwind CSS** — Utility-first CSS framework for responsive design  
+- **JavaScript (ES6+)** — Modern JavaScript features
+
+---
+
+## Installation
+
+1. Clone the repo:  
+   ```bash
+   git clone https://github.com/Jakia123sultana/Online_Job_Portal.git
