@@ -9,7 +9,7 @@ export default function MyApplictions() {
   console.log(user.accessToken)
   return (
     <div>
-      <ApplicationStats />
+      {/* <ApplicationStats /> */}
       <Suspense fallback={"loading your applications"}>
         <ApplictionList
           myApplicationsPromise={myApplicationsPromise(user.email,user.accessToken)}
