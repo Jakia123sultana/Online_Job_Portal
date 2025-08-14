@@ -16,6 +16,7 @@ import  AdminRoute from "../routes/AdminRoute"
 import ManageJob from "../DashBoard/Adimn/ManageJob";
 import AdminProfile from "../DashBoard/Adimn/AdminProfile";
 import MyApplication from "../DashBoard/User/MyApplication";
+import AllJobs from "../pages/Shared/AllJobCard";
 
 const router = createBrowserRouter([
     {
@@ -34,10 +35,14 @@ const router = createBrowserRouter([
                 path: 'signIn',
                 Component: SignIn
             },
+             {
+                path: '/alljobs',
+                Component: AllJobs
+            },
               {
                 path:'/jobs/:id',
                 Component: JobDetails,
-                 loader: ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`)
+                //  loader: ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`)
             },
              {
                 path: 'jobApply/:id',

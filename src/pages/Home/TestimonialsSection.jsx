@@ -1,41 +1,36 @@
 import React, { useRef, useState } from "react";
+import { motion } from 'framer-motion';
+import { FaArrowRightLong, FaArrowLeftLong } from 'react-icons/fa6';
 
 const TestimonialsSection = () => {
-  const stats = [
-    { icon: "🧑‍💼", label: "Total Recruiters", value: "800K+" },
-    { icon: "👥", label: "Daily User Visited", value: "600K+" },
-    { icon: "📄", label: "Daily Job Posted", value: "10K+" },
-    { icon: "🗂", label: "Total Recruiters", value: "800K+" },
-  ];
-
   const feedbacks = [
     {
       name: "Rakhab Uddin",
       title: "UI/UX Engineer",
       rating: 4.5,
       content: "I found the perfect job in just a few clicks.",
-      avatar: "https://via.placeholder.com/100",
+      avatar: "https://i.ibb.co.com/LDmYnQHd/Eti.jpg",
     },
     {
       name: "Mrs. Jordan Harry",
       title: "Senior Nurse",
       rating: 4.5,
       content: "Very professional platform, easy to use.",
-      avatar: "https://via.placeholder.com/100",
+      avatar: "https://i.ibb.co.com/0jHFcn70/Hasbi-Islam.jpg",
     },
     {
       name: "Zara Smith",
       title: "Frontend Developer",
       rating: 5,
       content: "Best experience ever! Found a remote job quickly.",
-      avatar: "https://via.placeholder.com/100",
+      avatar: "https://i.ibb.co.com/TB28ByF8/Hamja-Islam.jpg",
     },
     {
       name: "Mohammad Azad",
       title: "Data Analyst",
       rating: 4,
       content: "Smooth user experience, helpful filters.",
-      avatar: "https://via.placeholder.com/100",
+      avatar: "https://i.ibb.co.com/LhzdRT2j/aryan.jpg",
     },
     {
       name: "Alice Johnson",
@@ -83,40 +78,31 @@ const TestimonialsSection = () => {
     );
   };
 
-  const cardWidth = 300;
-  const scrollBy = 2;
+  const cardWidth = 290;
+  const gap = 18; // px, equals gap-6 in tailwind
+  const scrollBy = 1; // show 4 cards fully
 
   const scrollLeft = () => {
     const newIndex = Math.max(activeIndex - scrollBy, 0);
     setActiveIndex(newIndex);
     scrollRef.current?.scrollTo({
-      left: newIndex * cardWidth,
+      left: newIndex * (cardWidth + gap),
       behavior: "smooth",
     });
   };
 
   const scrollRight = () => {
-    const newIndex = Math.min(activeIndex + scrollBy, feedbacks.length - scrollBy);
+    const maxIndex = feedbacks.length - scrollBy;
+    const newIndex = Math.min(activeIndex + scrollBy, maxIndex);
     setActiveIndex(newIndex);
     scrollRef.current?.scrollTo({
-      left: newIndex * cardWidth,
+      left: newIndex * (cardWidth + gap),
       behavior: "smooth",
     });
   };
 
   return (
     <div className="bg-black text-white py-12 px-6 md:px-20">
-      {/* Stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center mb-12">
-        {stats.map((stat, index) => (
-          <div key={index}>
-            <div className="text-3xl">{stat.icon}</div>
-            <h3 className="text-xl font-bold">{stat.value}</h3>
-            <p className="text-gray-400">{stat.label}</p>
-          </div>
-        ))}
-      </div>
-
       {/* Header and Arrows */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
         <div>
@@ -127,26 +113,40 @@ const TestimonialsSection = () => {
             To choose your trending job dream & to make future bright.
           </p>
         </div>
-        <div className="flex gap-2">
-          <button
-            onClick={scrollLeft}
-            className="text-white bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition"
-            aria-label="Scroll Left"
-          >
-            ←
-          </button>
-          <button
-            onClick={scrollRight}
-            className="text-white bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition"
-            aria-label="Scroll Right"
-          >
-            →
-          </button>
-        </div>
+       <div className="hidden md:flex gap-0.5">
+             <motion.button
+               aria-label="scroll-left"
+               whileHover={{ scale: 1.05 }}
+                 whileTap={{ scale: 0.95 }}
+               onClick={scrollLeft}
+               className="flex items-center justify-center rounded-full p-2"
+             >
+               <span className="relative flex items-center">
+                 {/* Arrow */}
+                 <FaArrowLeftLong size={18} className="text-cyan-400 relative z-10" />
+                 {/* Outer Circle - shifted right so half covers arrow */}
+                 <span className="absolute right-2 rounded-full border border-cyan-400 w-6 h-6"></span>
+               </span>
+             </motion.button>
+            <motion.button
+               aria-label="scroll-right"
+               whileHover={{ scale: 1.05 }}
+                 whileTap={{ scale: 0.95 }}
+               onClick={scrollRight}
+               className="flex items-center justify-center rounded-full p-2"
+             >
+               <span className="relative flex items-center">
+                 {/* Arrow */}
+                 <FaArrowRightLong size={18} className="text-cyan-400 relative z-10" />
+                 {/* Outer Circle - shifted left so half covers arrow */}
+                 <span className="absolute left-2 rounded-full border border-cyan-400 w-6 h-6"></span>
+               </span>
+             </motion.button>
+          </div>
       </div>
 
       {/* Scrollable Cards */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden" style={{ width: 4 * cardWidth + 3 * gap }}>
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto no-scrollbar pb-4 scroll-smooth"
@@ -159,7 +159,7 @@ const TestimonialsSection = () => {
             return (
               <div
                 key={fb.name + i}
-                className={`min-w-[250px] max-w-[280px] transition-all duration-[1200ms] ease-in-out transform ${scaleClass} bg-gray-900 p-6 rounded-xl shadow-lg flex flex-col items-start gap-4`}
+                className={`min-w-[280px] max-w-[280px] transition-all duration-[1200ms] ease-in-out transform ${scaleClass} bg-[#061F21] p-6 rounded-xl shadow-lg flex flex-col items-start gap-4`}
               >
                 <img
                   src={fb.avatar}
