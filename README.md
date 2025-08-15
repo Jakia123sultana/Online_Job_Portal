@@ -50,7 +50,7 @@ This project is an Online Job Portal frontend that offers a scalable and user-fr
 1. Clone the repo:  
    ```bash
    git clone https://github.com/Jakia123sultana/Online_Job_Portal.git
-   cd Online_Job_Portal
+   cd online_Job_Portal
    npm install
    npm run dev
 
