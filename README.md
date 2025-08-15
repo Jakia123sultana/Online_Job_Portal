@@ -1,4 +1,4 @@
-# Online Job Portal
+# Online Job Portal-Frontend
 
 A clean, responsive frontend template built with React, Vite, Tailwind CSS, and JavaScript — perfect for building modern job portals, dashboards, or any web application interface.
 
