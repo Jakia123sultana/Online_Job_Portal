@@ -89,8 +89,41 @@ const NavBar = () => {
               Dashboard
             </NavLink>
           </li>
+       
         </>
       )}
+           <li className="group relative">
+        <NavLink
+          to="/aboutus"
+          className={({isActive}) =>
+            `text-white  transition duration-300 
+                 before:content-[''] before:absolute before:-bottom-1 before:left-0 
+                 before:h-[2px] before:w-full before:bg-sky-400 before:scale-x-0 
+                 before:origin-left before:transition-transform before:duration-300 
+                 group-hover:before:scale-x-100 ${
+                   isActive ? "before:scale-x-100" : ""
+                 }`
+          }
+        >
+       About Us
+        </NavLink>
+      </li>
+           <li className="group relative">
+        <NavLink
+          to="/contact"
+          className={({isActive}) =>
+            `text-white  transition duration-300 
+                 before:content-[''] before:absolute before:-bottom-1 before:left-0 
+                 before:h-[2px] before:w-full before:bg-sky-400 before:scale-x-0 
+                 before:origin-left before:transition-transform before:duration-300 
+                 group-hover:before:scale-x-100 ${
+                   isActive ? "before:scale-x-100" : ""
+                 }`
+          }
+        >
+       Contact 
+        </NavLink>
+      </li>
     </>
   );
 

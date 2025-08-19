@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-
+import { motion } from "framer-motion";
 export default function AddJob() {
     const {user} = useAuth();
     const axiosInstance = useAxiosSecure();
@@ -52,8 +52,33 @@ export default function AddJob() {
 
 
   return (
-    <div className="p-4">
-      {/* <h2 className="text-3xl  text-white font-bold mb-6 text-center">Please add a job</h2> */}
+    <div className="p-4 mt-8 mb-8">
+
+
+    <div className="text-center mb-10">
+      {/* Animated Heading */}
+      <motion.h2
+        className="text-3xl text-white font-bold mb-4 "
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        Please add a job
+      </motion.h2>
+
+      {/* Animated Paragraph */}
+      <motion.p
+        className="text-gray-300 max-w-2xl mx-auto text-base"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+      >
+        Share your opportunity with talented candidates. Fill in the details below 
+        to create a job posting that will reach the right people and help grow 
+        your organization.
+      </motion.p>
+    </div>
+
 
       <form
         onSubmit={handleAddAJob}
@@ -267,8 +292,8 @@ export default function AddJob() {
 
         <input
           type="submit"
-          className="btn btn-primary w-full"
-          value="Add Job"
+          className="btn bg-[#00ced1]  text-white font-semibold text-lg w-full"
+          value="Add  a New Job"
         />
       </form>
     </div>

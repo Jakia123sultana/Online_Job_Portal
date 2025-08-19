@@ -17,6 +17,9 @@ import ManageJob from "../DashBoard/Adimn/ManageJob";
 import AdminProfile from "../DashBoard/Adimn/AdminProfile";
 import MyApplication from "../DashBoard/User/MyApplication";
 import AllJobs from "../pages/Shared/AllJobCard";
+import AboutUs from "../pages/AboutUs";
+import ContactPage from "../pages/Shared/Contact";
+
 
 const router = createBrowserRouter([
     {
@@ -38,6 +41,14 @@ const router = createBrowserRouter([
              {
                 path: '/alljobs',
                 Component: AllJobs
+            },
+              {
+                path: '/aboutus',
+                element: <div><AboutUs/></div>
+            },
+               {
+                path: '/contact',
+                element: <div><ContactPage/></div>
             },
               {
                 path:'/jobs/:id',

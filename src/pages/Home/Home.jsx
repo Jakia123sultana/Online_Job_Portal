@@ -8,6 +8,8 @@ import Stats from "./Stats";
 import Questions from "./Questions";
 import Collaps from "./Collaps";
 import JobProcess from "./JobProcess";
+import WhyChooseUs from "./Whyus.jsx";
+import Goodcompany from "./Goodcompany.jsx";
 
 export default function Home() {
   const axiosInstance = useAxiosSecure();
@@ -20,8 +22,9 @@ export default function Home() {
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <Banner />
       </motion.div>
@@ -30,8 +33,9 @@ export default function Home() {
       <motion.div
         className="max-w-[90%] mx-auto"
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.2 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <Suspense fallback={"Loading hot jobs"}>
           <HotJobs jobsPromise={jobsPromise} />
@@ -42,8 +46,9 @@ export default function Home() {
       <motion.div
         className="mx-auto max-w-[90%]"
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 2.4 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <Stats className="mx-auto max-w-[80%]" />
       </motion.div>
@@ -51,46 +56,61 @@ export default function Home() {
       {/* Job Process */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 3.6 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <JobProcess />
+      </motion.div>
+
+      {/* Good Company */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <Goodcompany />
+      </motion.div>
+
+      {/* Why Choose Us */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <WhyChooseUs />
       </motion.div>
 
       {/* Testimonials */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 4.8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <TestimonialsSection />
       </motion.div>
 
-      {/* Questions + Collaps */}
+      {/* Questions (from left) */}
       <motion.div
-        className="mx-auto max-w-[90%] flex justify-between gap-8 mb-28"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
-        {/* Questions from left */}
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 6 }}
-          className="flex-1"
-        >
-          <Questions />
-        </motion.div>
+        <Questions />
+      </motion.div>
 
-        {/* Collaps from right */}
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 6.6 }}
-          className="flex-1"
-        >
-          <Collaps />
-        </motion.div>
+      {/* Collaps (from right) */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <Collaps />
       </motion.div>
     </div>
   );

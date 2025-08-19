@@ -4,7 +4,7 @@ import { GrDocumentVerified } from "react-icons/gr";
 import { FaRegAddressCard } from "react-icons/fa6";
 import { LiaUsersCogSolid } from "react-icons/lia";
 import { BsFillFilePostFill } from "react-icons/bs";
-
+import { motion } from "framer-motion";
 const stats = [
   { icon:<FaRegAddressCard />, label: "Total Recruiters", end: 800, suffix: "K+" },
   { icon: <LiaUsersCogSolid />, label: "Daily User Visited", end: 600, suffix: "K+" },
@@ -15,7 +15,29 @@ const stats = [
 const Stats = () => {
   return (
     <div>
-      <h1 className='mt-12  text-white  text-4xl '>Our Success of Story</h1>
+<div className="text-center mt-12 px-4">
+      {/* Title */}
+      <motion.h1
+        className="text-white text-4xl font-bold"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        Our Success Story
+      </motion.h1>
+
+      {/* Paragraph */}
+      <motion.p
+        className="text-gray-300 mt-4 max-w-2xl mx-auto text-lg leading-relaxed"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+      >
+        Over the years, we have helped thousands of professionals land their dream jobs
+        and companies find the right talent. Our platform is trusted by top
+        organizations.
+      </motion.p>
+    </div>
     <div className="stats-container " style={styles.container}>
       {stats.map((stat, index) => (
         <StatCard

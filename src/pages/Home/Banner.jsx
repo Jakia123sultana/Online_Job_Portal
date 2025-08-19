@@ -9,20 +9,19 @@ const Banner = () => {
       {/* <div className="hero-content flex-col lg:flex-row-reverse"> */}
       <div className="flex flex-col lg:flex-row-reverse items-center justify-between px-4 py-10 gap-10 max-w-6xl mx-auto">
         <div className="flex-1">
-          <motion.img
-            src={team1}
-            animate={{ y: [50, 100, 50] }}
-            transition={{ duration: 10, repeat: Infinity }}
-            className="max-w-lg w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
-            //  style={{ transform: "scale(1.9)", transformOrigin: "center" }} 
-          />
-          <motion.img
-            src={team2}
-            animate={{ x: [100, 150, 100] }}
-            transition={{ duration: 10, delay: 5, repeat: Infinity }}
-            className="max-w-lg w-64 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
-            //  style={{ transform: "scale(1.9)", transformOrigin: "center" }} 
-          />
+<motion.img
+  src={team1}
+  animate={{ y: [50, 100, 50] }}
+  transition={{ duration: 10, repeat: Infinity }}
+  className="max-w-lg w-96 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
+/>
+<motion.img
+  src={team2}
+  animate={{ x: [100, 150, 100] }}
+  transition={{ duration: 10, delay: 5, repeat: Infinity }}
+  className="max-w-lg w-96 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-400 shadow-2xl"
+/>
+
         </div>
         <div className="flex-1">
           <motion.h1

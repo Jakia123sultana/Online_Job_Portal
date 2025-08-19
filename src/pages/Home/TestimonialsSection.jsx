@@ -23,14 +23,14 @@ const TestimonialsSection = () => {
       title: "Frontend Developer",
       rating: 5,
       content: "Best experience ever! Found a remote job quickly.",
-      avatar: "https://i.ibb.co.com/TB28ByF8/Hamja-Islam.jpg",
+      avatar: "https://i.ibb.co.com/CpPQFVzG/admin2.jpg",
     },
     {
       name: "Mohammad Azad",
       title: "Data Analyst",
       rating: 4,
       content: "Smooth user experience, helpful filters.",
-      avatar: "https://i.ibb.co.com/LhzdRT2j/aryan.jpg",
+      avatar: "https://i.ibb.co.com/GQ8YTGJ6/admin3.jpg",
     },
     {
       name: "Alice Johnson",
@@ -164,7 +164,7 @@ const TestimonialsSection = () => {
                 <img
                   src={fb.avatar}
                   alt={fb.name}
-                  className="w-14 h-14 rounded-full mb-2"
+                  className="w-20 h-20 rounded-full mb-2"
                 />
                 {renderStars(fb.rating)}
                 <p className="text-gray-300 mt-2 mb-4">{fb.content}</p>
