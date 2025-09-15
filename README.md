@@ -32,14 +32,14 @@ Check out the live version of the project here:
 - 📝 **Apply for Jobs** — Integrated job application form with validation.  
 - 📊 **Dashboard Details** —  
 
-# User Dashboard
+**User Dashboard**
 
 - View **My Applications** and their status (Pending, Accepted, Rejected)  
 - Update profile information  
 -  **Saved Applications** and Access **Job Details**
 
 
-# Admin Dashboard
+**Admin Dashboard**
 
 - Manage **job postings** (Add, Update, Delete)  
 - View all **registered users** and their applications  
