@@ -13,12 +13,17 @@ import AddJob from "../pages/AddJob/AddJob";
 import Dashboard from "../layouts/DashBoard";
 import ManageUsers from "../DashBoard/Adimn/ManageUser";
 import  AdminRoute from "../routes/AdminRoute"
-import ManageJob from "../DashBoard/Adimn/ManageJob";
+
 import AdminProfile from "../DashBoard/Adimn/AdminProfile";
 import MyApplication from "../DashBoard/User/MyApplication";
 import AllJobs from "../pages/Shared/AllJobCard";
 import AboutUs from "../pages/AboutUs";
 import ContactPage from "../pages/Shared/Contact";
+import ManageApplications from "../DashComponent/ManageApplications";
+import ManageJob from "../DashComponent/ManageJob";
+import SettingsPage from "../DashComponent/SettingsPage";
+import SavedApplications from "../DashBoard/User/SavedApplications";
+
 
 
 const router = createBrowserRouter([
@@ -59,10 +64,10 @@ const router = createBrowserRouter([
                 path: 'jobApply/:id',
                 element: <PrivateRoute><JobApply/></PrivateRoute>
             },
-            //   {
-            //     path: 'myApplications',
-            //     element: <PrivateRoute><MyApplictions/></PrivateRoute>
-            // },
+              {
+                path: 'myApplications',
+                element: <PrivateRoute><MyApplictions/></PrivateRoute>
+            },
             {
                 path:'/addJob',
                 element: <PrivateRoute><AddJob></AddJob></PrivateRoute>
@@ -83,6 +88,10 @@ const router = createBrowserRouter([
         element: <AdminProfile/>,
       },
            {
+        path: "saved-applications",
+        element: <SavedApplications/>,
+      },
+          {
         path: "my-applications",
         element: <MyApplication/>,
       },
@@ -95,8 +104,16 @@ const router = createBrowserRouter([
         element: <AdminRoute><ManageUsers/></AdminRoute>,
       },
        {
-        path: "manage-jobs",
+        path: "managejobs",
         element: <AdminRoute><ManageJob/></AdminRoute>,
+      },
+       {
+        path: "manage-applications",
+     element: <AdminRoute><ManageApplications/></AdminRoute>,
+      },
+         {
+        path: "settings",
+        element: <AdminRoute><SettingsPage/></AdminRoute>,
       },
       ]
 }

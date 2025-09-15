@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { motion } from "framer-motion";
 import HotJobs from "./HotJobs";
 import Banner from "./Banner";
-import TestimonialsSection from "./TestimonialsSection";
+ import TestimonialsSection from "./TestimonialsSection";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Stats from "./Stats";
 import Questions from "./Questions";
@@ -18,7 +18,7 @@ export default function Home() {
     .then((res) => res.data.filter((job) => job.status === "Verified"));
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
@@ -84,14 +84,14 @@ export default function Home() {
       </motion.div>
 
       {/* Testimonials */}
-      <motion.div
+    <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true, amount: 0.3 }}
       >
         <TestimonialsSection />
-      </motion.div>
+      </motion.div> 
 
       {/* Questions (from left) */}
       <motion.div

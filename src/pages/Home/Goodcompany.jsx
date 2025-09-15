@@ -5,48 +5,50 @@ const Goodcompany = () => {
   return (
     <div className="space-y-12">
       {/* Top Hero */}
-      <motion.div
-        className="flex flex-col md:flex-row items-center gap-12 p-8 md:p-16 rounded-lg shadow-lg"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+    <motion.div
+  className="flex flex-col md:flex-row items-center gap-12 p-6 md:p-16 rounded-lg shadow-lg"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+  viewport={{ once: true, amount: 0.3 }}
+>
+  <motion.img
+    src="https://i.ibb.co.com/hx68cj1K/team.jpg"
+    alt="Team collaboration in office"
+    className="w-full md:w-[50%] rounded-lg object-cover aspect-video"
+    initial={{ opacity: 0, x: -100 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 1 }}
+    viewport={{ once: true, amount: 0.3 }}
+  />
+
+  <motion.div
+    className="md:w-1/2 space-y-4 text-center md:text-left"
+    initial={{ opacity: 0, x: 100 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 1 }}
+    viewport={{ once: true, amount: 0.3 }}
+  >
+    <h1 className="text-2xl sm:text-3xl font-bold text-white">
+      Good Life Begins With <br /> A Good Company
+    </h1>
+    <p className="text-gray-300 text-sm sm:text-base">
+      A supportive workplace fosters growth, innovation, and happiness. 
+      With the right team beside you, challenges turn into opportunities 
+      and dreams become achievable goals.
+    </p>
+    <div>
+      <motion.button
+        className="bg-[#00ced1] text-white px-6 py-2 rounded-md hover:bg-teal-600 transition"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <motion.img
-          src="https://i.ibb.co.com/hx68cj1K/team.jpg"
-          alt="Team collaboration in office"
-          className="w-full h-[380px] md:w-[60%] rounded-lg object-cover"
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-        />
-        <motion.div
-          className="md:w-1/2 space-y-4"
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <h1 className="text-3xl font-bold text-white">
-            Good Life Begins With <br /> A Good Company
-          </h1>
-          <p className="text-gray-300">
-            A supportive workplace fosters growth, innovation, and happiness. 
-            With the right team beside you, challenges turn into opportunities 
-            and dreams become achievable goals.
-          </p>
-          <div>
-            <motion.button
-              className="bg-[#00ced1] text-white px-6 py-2 rounded-md hover:bg-teal-600 transition"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Search Job
-            </motion.button>
-          </div>
-        </motion.div>
-      </motion.div>
+        Search Job
+      </motion.button>
+    </div>
+  </motion.div>
+</motion.div>
+
 
       {/* Bottom Hero */}
       <motion.div

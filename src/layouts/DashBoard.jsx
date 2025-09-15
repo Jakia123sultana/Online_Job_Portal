@@ -1,100 +1,103 @@
-import React, { useState } from "react";
-import { Navigate, Link, Outlet } from "react-router"; // ✅ fixed import
-import { FaBars, FaTimes, FaUser, FaUsers, FaBriefcase, FaSave, FaCheckCircle } from "react-icons/fa";
-import useAuth from "../hooks/useAuth";
-import useUserRole from "../hooks/useUserRole";
+import { Outlet, useLocation } from "react-router";
+import Sidebar from "../DashComponent/Sidebar";
+import Topbar from "../DashComponent/Topbar";
+import ApplicationsStats from "../DashComponent/ApplicationStates";
+import { Suspense, lazy, useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
-const Dashboard = () => {
-  const { user } = useAuth();
-  const { role, roleLoading } = useUserRole();
+// Lazy load heavy widgets
+const ActiveJobsChart = lazy(() => import("../DashComponent/ActiveJobsChart"));
+const JobTitles = lazy(() => import("../DashComponent/JobTitle"));
+const TotalApplications = lazy(() => import("../DashComponent/TopApplications"));
+const NewApplications = lazy(() => import("../DashComponent/NewApplications"));
+const CalendarWidget = lazy(() => import("../DashComponent/CalendarWidget"));
+const ScheduledMeetings = lazy(() => import("../DashComponent/ScheduledMeetings"));
+
+export default function Dashboard() {
+  const location = useLocation();
+  const isRootDashboard = location.pathname === "/dashboard";
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // 🌀 Loading Spinner
-  if (roleLoading) {
-    return (
-      <div className="min-h-screen flex justify-center items-center bg-black text-white">
-        <div className="flex flex-col items-center gap-4">
-          <FaCheckCircle className="animate-spin text-4xl text-blue-500" />
-          <p className="text-lg">Loading dashboard...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!user) return <Navigate to="/login" replace />;
-
   return (
-    <div className="min-h-screen md:grid md:grid-cols-12 bg-gray-50">
-      {/* Mobile Toggle Button */}
-      <button
-        onClick={() => setSidebarOpen(!sidebarOpen)}
-        className="md:hidden p-4 text-xl bg-white shadow-md z-20"
-      >
-        {sidebarOpen ? <FaTimes /> : <FaBars />}
-      </button>
-
+    <div className="min-h-screen bg-[#0B0F10] text-white flex">
       {/* Sidebar */}
-      <aside
-        className={`${
-          sidebarOpen ? "block" : "hidden"
-        } md:block col-span-3 bg-black text-white p-6 md:min-h-screen absolute md:relative w-full md:w-auto z-10`}
+      <div
+        className={`fixed inset-y-0 left-0 z-40 w-64 bg-[#111418] transform 
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} 
+          transition-transform duration-300 ease-in-out 
+          md:translate-x-0 md:static md:block`}
       >
-        <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Dashboard</h2>
-        <ul className="space-y-4">
-          
+        <Sidebar />
+      </div>
 
-          {role === "admin" && (
-            <>
-            <li>
-            <Link to="adminProfile" className="flex items-center gap-2 hover:text-blue-400">
-              <FaUser /> Profile
-            </Link>
-          </li>
-              <li>
-                <Link to="manageuser" className="flex items-center gap-2 hover:text-blue-400">
-                  <FaUsers /> Manage Users
-                </Link>
-              </li>
-              <li>
-                <Link to="manage-jobs" className="flex items-center gap-2 hover:text-blue-400">
-                  <FaBriefcase /> Manage Jobs
-                </Link>
-              </li>
-            </>
-          )}
-
-          {role === "user" && (
-            <>
-              <li>
-                <Link to="my-applications" className="flex items-center gap-2 hover:text-blue-400">
-                  <FaCheckCircle /> My Applications
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/saved-jobs" className="flex items-center gap-2 hover:text-blue-400">
-                  <FaSave /> Saved Jobs
-                </Link>
-              </li>
-            </>
-          )}
-        </ul>
-      </aside>
+      {/* Overlay for mobile */}
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+        />
+      )}
 
       {/* Main Content */}
-      <main className="col-span-12 md:col-span-9 p-6">
-        <h1 className="text-3xl font-bold mb-6">Welcome, {user.displayName || "User"}!</h1>
-
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <p className="text-gray-700">
-            You are logged in as <strong className="text-blue-600">{role}</strong>.
-          </p>
+      <main className="flex-1 flex flex-col md:ml-0">
+        {/* Topbar with menu button */}
+        <div className="flex items-center justify-between md:justify-end px-4 py-3 border-b border-white/10">
+          {/* Sidebar Toggle Button (only mobile) */}
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="md:hidden text-white text-2xl"
+          >
+            <FiMenu />
+          </button>
+          <Topbar />
         </div>
 
-        {/* ✅ Nested Route Content Will Render Here */}
-        <Outlet />
+        {isRootDashboard ? (
+          <>
+            {/* Stats section */}
+            <div className="px-4 sm:px-6 md:px-8 py-6">
+              <ApplicationsStats />
+            </div>
+
+            {/* Widgets Grid */}
+            <div className="px-4 sm:px-6 md:px-8 pb-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-6">
+              {/* Left Column */}
+              <div className="xl:col-span-6 space-y-6">
+                <Suspense fallback={<div className="h-64 bg-gray-800 animate-pulse rounded-lg" />}>
+                  <ActiveJobsChart />
+                </Suspense>
+                <Suspense fallback={<div className="h-64 bg-gray-800 animate-pulse rounded-lg" />}>
+                  <JobTitles />
+                </Suspense>
+              </div>
+
+              {/* Middle Column */}
+              <div className="xl:col-span-3 space-y-6">
+                <Suspense fallback={<div className="h-40 bg-gray-800 animate-pulse rounded-lg" />}>
+                  <TotalApplications />
+                </Suspense>
+                <Suspense fallback={<div className="h-40 bg-gray-800 animate-pulse rounded-lg" />}>
+                  <NewApplications />
+                </Suspense>
+              </div>
+
+              {/* Right Column */}
+              <div className="xl:col-span-3 space-y-6">
+                <Suspense fallback={<div className="h-40 bg-gray-800 animate-pulse rounded-lg" />}>
+                  <CalendarWidget />
+                </Suspense>
+                <Suspense fallback={<div className="h-40 bg-gray-800 animate-pulse rounded-lg" />}>
+                  <ScheduledMeetings />
+                </Suspense>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="p-4 sm:p-6 md:p-8">
+            <Outlet />
+          </div>
+        )}
       </main>
     </div>
   );
-};
-
-export default Dashboard;
+}

@@ -1,5 +1,5 @@
 export const myApplicationsPromise = async (email,accessToken) =>
-  (await fetch(`http://localhost:3000/applications?email=${email}`, 
+  (await fetch(`https://career-code-server-with-crud.vercel.app/applications?email=${email}`, 
   
   //   {
   //   credentials: 'include',
