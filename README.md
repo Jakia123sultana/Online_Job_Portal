@@ -30,7 +30,27 @@ Check out the live version of the project here:
 - 🔍 **Job Search** — Easily browse and search for jobs.  
 - 📄 **Job Details Page** — View complete job descriptions, company info, and requirements.  
 - 📝 **Apply for Jobs** — Integrated job application form with validation.  
-- 📊 **User Dashboard** — Track applied jobs and application status.  
+- 📊 **Dashboard Details** —  
+
+### User Dashboard
+
+- View **My Applications** and their status (Pending, Accepted, Rejected)  
+- Update profile information  
+-  **Saved Applications** and Access **Job Details**
+
+
+### Admin Dashboard
+
+- Manage **job postings** (Add, Update, Delete)  
+- View all **registered users** and their applications  
+- Approve or reject applications  
+- Monitor overall portal activity  
+
+**Admin Test Credentials:**  
+- **Email:** lima@gmail.com  
+- **Password:** 1234As@  
+
+---
 - 🔒 **Authentication Ready** — Supports login, registration, and protected routes.  
 - 📱 **Responsive Design** — Fully optimized for mobile, tablet, and desktop devices.  
 - ⚡ **Fast Performance** — Built with Vite for quick builds and HMR.  
