@@ -10,6 +10,12 @@ This project is an Online Job Portal frontend that offers a scalable and user-fr
 
 ---
 
+## Live Demo
+
+Check out the live version of the project here:  
+[https://onlinejobportal.surge.sh/](https://onlinejobportal.surge.sh/)
+
+
 ## Tech Stack
 
 - **React** — For building interactive UI components  
